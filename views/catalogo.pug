@@ -4,7 +4,7 @@ block content
   .general-container
     if productos.length > 0
       if user == 'admin'
-
+        a(href="/agregar-producto" class="agregar-producto") Agregar producto
         .producto-container
           each producto in productos
             .producto

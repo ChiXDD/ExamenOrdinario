@@ -4,7 +4,7 @@ block content
   .login-container
     h1(class='title') #{titulo}
 
-    form(action='/login' method='POST' class='login-form')
+    form(action='/agregar-producto' method='POST' class='login-form' enctype='multipart/form-data')
       .form-group
         label(for='username' class='form-label') Nombre
         input(type='text' name='nombre' id='nombre' placeholder='Nombre' class='form-input', required)
@@ -23,12 +23,11 @@ block content
 
       .form-group
         label(for='imagen' class='form-label') Imagen
-        form(action="http://localhost:3000/agregar-producto" method="POST" enctype="multipart/form-data")
-          input(type="file" name="imagen" id="imagen" class='form-input', required)
+        // Solo se puede subir una imagen
+        input(type='file' name='imagen' id='imagen', required)
 
       .form-group
-        form(action="/agregar-producto" method="POST" enctype="multipart/form-data")
-          button(type='submit' class='form-button') Agregar producto
+        button(type='submit' class='form-button') Agregar producto
 
 
     .reg-container
