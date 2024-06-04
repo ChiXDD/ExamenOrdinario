@@ -13,10 +13,14 @@ const cookieParser = require('cookie-parser');
 const authMiddleWare = require('./middlewares/authMiddleware');
 const ventaController = require('./controllers/ventaController');
 const compraController = require('./controllers/compraController');
+const bodyParser = require('body-parser');
 
 // Variable global para almacenar el carrito en caché
 let ventaCache = {};
 let compraCache = {};
+
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 //Configura Cookie Parser
 app.use(cookieParser());
