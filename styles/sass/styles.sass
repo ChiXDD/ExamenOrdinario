@@ -1,0 +1,595 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap')
+
+$uniquifier: 'Noto style'
+$weight: 400
+
+$mainColor: #F0F3FF
+$navColor: #8E7AB5
+$textColor: #986D8E
+$titleColor: #E493B3
+$hoverColor: #EEA5A6
+
+$border-radius: 20px
+
+.material-symbols-rounded
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24
+
+.noto-sans-#{$uniquifier}
+  font-family: "Noto Sans", sans-serif
+  font-weight: $weight
+  font-style: normal
+
+p
+  color: rgb(0, 0, 0)
+
+h1
+  text-align: center
+  color: rgb(0, 0, 0)
+
+body
+  font-family: "Noto Sans", sans-serif
+  margin: 0
+  padding: 0
+  background-color: rgb(190, 190, 190)
+
+nav
+  background-color: rgb(190, 190, 190)
+  padding: 5px 0
+  box-shadow: rgba(50, 50, 50, 0.3) 0 3px 6px 0
+
+nav ul
+  display: flex
+  padding: 0
+  list-style-type: none
+  width: 100%
+  justify-content: space-between
+
+nav ul li
+  display: inline-block
+  margin-right: 20px
+
+nav ul li a
+  display: flex
+  color: rgb(0, 0, 0)
+  text-decoration: none
+  font-weight: bold
+  padding: 8px 15px
+  font-size: 16px
+
+i
+  vertical-align: middle
+
+.linknav:hover
+  color: rgb(0, 0, 0)
+  opacity: 0.5
+
+.inicio
+  text-align: left
+  padding-left: 10px
+
+.cuentas
+  text-align: right
+
+.btn-registro
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 42px
+  position: relative
+  padding: 0 20px
+  font-size: 18px
+  text-transform: uppercase
+  border: 0
+  box-shadow: hsl(210deg 87% 36%) 0px 7px 0px 0px
+  background-color: hsl(210deg 100% 44%)
+  border-radius: 12px
+  overflow: hidden
+  transition: 31ms cubic-bezier(.5, .7, .4, 1)
+
+.btn-registro:before
+  content: attr(alt)
+  display: flex
+  align-items: center
+  justify-content: center
+  position: absolute
+  inset: 0
+  font-size: 15px
+  font-weight: bold
+  color: white
+  letter-spacing: 4px
+  opacity: 1
+
+.btn-registro:active
+  box-shadow: none
+  transform: translateY(7px)
+  transition: 35ms cubic-bezier(.5, .7, .4, 1)
+
+.btn-registro:hover:before
+  transition: all .0s
+  transform: translateY(100%)
+  opacity: 0
+
+.btn-registro i
+  color: white
+  font-size: 15px
+  font-weight: bold
+  letter-spacing: 4px
+  font-style: normal
+  transition: all 2s ease
+  transform: translateY(-20px)
+  opacity: 0
+
+.btn-registro:hover i
+  transition: all .2s ease
+  transform: translateY(0px)
+  opacity: 1
+
+.btn-registro:hover i:nth-child(1)
+  transition-delay: 0.045s
+
+.btn-registro:hover i:nth-child(2)
+  transition-delay: calc(0.045s * 3)
+
+.btn-registro:hover i:nth-child(3)
+  transition-delay: calc(0.045s * 4)
+
+.btn-registro:hover i:nth-child(4)
+  transition-delay: calc(0.045s * 5)
+
+.btn-registro:hover i:nth-child(5)
+  transition-delay: calc(0.045s * 6)
+
+.btn-registro:hover i:nth-child(6)
+  transition-delay: calc(0.045s * 7)
+
+.btn-registro:hover i:nth-child(7)
+  transition-delay: calc(0.045s * 8)
+
+.btn-registro:hover i:nth-child(8)
+  transition-delay: calc(0.045s * 9)
+
+.form-subir
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.btn-subir
+  font-size: 20px
+
+.btn-mandar
+  margin-top: 20px
+  background-color: rgb(77, 144, 254)
+  color: rgb(255, 255, 255)
+  border: none
+  border-radius: 25px
+  font-size: 25px
+  height: 50px
+  width: 100%
+
+.btn-mandar:hover
+  background-color: rgb(44, 100, 192)
+
+.container
+  width: auto
+
+.centered-index-content
+  margin: 5% 10% 0 10%
+
+.contenedor-principal
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.login-container
+  background-color: rgb(232, 229, 229)
+  box-shadow: rgb(75, 74, 74) 7px 10px 10px
+  max-width: 500px
+  margin: 0 auto
+  padding: 20px
+  border: none
+  border-radius: 20px
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 90%
+
+.regis-container
+  background-color: rgb(232, 229, 229)
+  box-shadow: rgb(75, 74, 74) 7px 10px 10px
+  max-width: 500px
+  margin: 0 auto
+  padding: 20px
+  border: none
+  border-radius: 20px
+  position: absolute
+  top: 55%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 90%
+
+.reg-container
+  text-align: center
+
+.reg-container span a
+  font-size: 20px
+  text-decoration: none
+  list-style: none
+  color: rgb(98, 77, 254)
+
+.title
+  font-size: 24px
+  text-align: center
+
+.login-form
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.form-group
+  display: flex
+  justify-content: start
+  width: 100%
+  flex-direction: column
+
+.texto-volver
+  text-align: center
+  font-size: 25px
+
+#mostrarContrasena
+  width: 100px
+  font-size: 16px
+  margin-left: 10px
+  height: 35px
+  background-color: none
+  border: 1px solid #8E7AB5
+  border-radius: 8px
+
+.form-label
+  font-size: 16px
+  margin: 10px 0
+
+.form-input
+  width: 97%
+  padding: 8px
+  font-size: 16px
+  border: 1px solid #8E7AB5
+  border-radius: 8px
+  align-self: center
+
+.contrasena-container
+  display: flex
+  flex-direction: row
+  width: 100%
+  align-items: center
+
+.submit-button
+  padding: 10px
+  font-size: 16px
+  background-color: rgb(127, 74, 74)
+  color: white
+  border: none
+  border-radius: 8px
+  cursor: pointer
+  margin: 20px
+  width: 100%
+  align-self: center
+
+.submit-button:hover
+  background-color: rgb(127, 74, 74)
+  opacity: 0.8
+
+.register-link
+  margin-top: 10px
+  text-align: center
+
+.carrito-container
+  display: flex
+
+.carrito-list
+    display: none
+    list-style: none
+    padding: 0
+    margin: 0
+
+    li
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 10px
+        border-bottom: 1px solid #ddd
+
+        img
+            max-width: 50px
+            margin-right: 10px
+
+        span
+            flex: 1
+            margin-right: 10px
+    
+    @media screen and (max-width: 450px)
+      .carrito-list
+          min-width: 600px
+          overflow-x: scroll // Mostrar barra de scroll en dispositivos con scroll táctil
+          -webkit-overflow-scrolling: touch
+
+
+.carrito-table
+    width: 100%
+    table-layout: fixed // Fuerza a las columnas a tener un ancho fijo
+    border-collapse: collapse // Colapsa los bordes de las celdas
+    table
+      width: 100%
+    th, td
+        text-align: center // Alinea el texto a la izquierda en las celdas
+        padding: 8px // Agrega espaciado interno a las celdas
+        border-bottom: 1px solid #000 // Agrega borde inferior a las filas
+    th:nth-child(1), td:nth-child(1) // Primera columna
+        width: 40% // Establece el ancho de la primera columna
+        border-right: 1px solid #000 // Agrega bordes entre las columnas
+    th:nth-child(2), td:nth-child(2) // Segunda columna
+        width: 20% // Establece el ancho de la segunda columna
+        border-right: 1px solid #000 // Agrega bordes entre las columnas
+    th:nth-child(3), td:nth-child(3) // Tercera columna
+        width: 40% // Establece el ancho de la tercera columna
+
+    // Media query para hacer la tabla responsiva
+    @media screen and (max-width: 768px)
+        th, td
+            display: block // Cambia a modo bloque para ocupar todo el ancho
+            width: 100% // Ocupa todo el ancho del contenedor
+        th:nth-child(1), td:nth-child(1) // Primera columna
+            width: auto // Auto para que ocupe el ancho necesario
+        th:nth-child(2), td:nth-child(2) // Segunda columna
+            width: auto // Auto para que ocupe el ancho necesario
+        th:nth-child(3), td:nth-child(3) // Tercera columna
+            width: auto // Auto para que ocupe el ancho necesario
+
+.carrito-table,
+.carrito-list
+    max-height: 300px
+    overflow-y: auto
+
+.quantity
+  display: inline-block
+  margin: 0 5px
+
+.action-buttons
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 2em auto
+
+  form
+    margin: 0
+
+  button
+    padding: 5px 10px
+    margin-right: 5px
+    background-color: $navColor
+    color: white
+    border: none
+    border-radius: $border-radius
+    cursor: pointer
+
+    &:hover
+      background-color: $hoverColor
+
+  span
+    margin: 0 5px
+    font-weight: bold
+
+#eliminar-del-carrito
+  width: 150px
+  font-size: 1em
+
+.procesar-compra-container
+  text-align: center
+  margin: 2.5%
+  padding: 2.5%
+  
+  form
+    margin-top: 2em
+
+.procesar-compra-detalle
+  display: grid
+  justify-content: center
+  grid-gap: 0.5em
+
+.procesar-compra-button
+  padding: 10px 20px
+  font-size: 16px
+  background-color: #87A8A4
+  color: white
+  border: none
+  cursor: pointer
+  border-radius: 10px
+  width: -moz-available
+  width: -webkit-fill-available
+
+  &:hover
+    background-color: #416D19
+
+p
+  color: $textColor
+
+p.empty-cart
+  text-align: center
+  font-style: italic
+  color: #777
+  margin-top: 20px
+
+.general-container
+  margin: 5%
+  min-width: 250px
+
+.producto-container
+  display: grid
+  grid-template-columns: repeat(3, minmax(200px, 1fr))
+  gap: 30px
+
+.producto
+  display: flex
+  flex-direction: column
+  width: 100%
+  align-items: center
+  border: 1px solid #dc4d4d
+  border-radius: 20px
+
+.producto img
+  width: 100%
+  height: 300px
+  border-radius: 20px 20px 0 0
+
+.info-producto
+  display: flex
+  flex-direction: column
+  width: 100%
+
+.producto-name
+  display: flex
+  flex-direction: row
+  justify-content: space-evenly
+  width: 100%
+  color: #000
+
+.producto-precio
+  display: flex
+  flex-direction: row
+  justify-content: space-evenly
+  width: 100%
+  color: #000
+  text-align: center
+
+.contenedor-editar
+  display: flex
+  flex-direction: row
+  justify-content: space-evenly
+  width: 100%
+  color: #000
+  margin: 15px 0
+
+.producto button
+  background-color: #dc4d4d
+  color: white
+  border: none
+  border-radius: 20px
+  cursor: pointer
+  font-size: 35px
+  width: 150px
+
+.producto button:hover
+  opacity: 0.8
+
+.producto-label
+  font-size: 18px
+  font-family: 'Reddit Mono'
+
+.producto-precio
+  font-size: 14px
+  font-family: 'Reddit Mono'
+
+.producto-cell
+  display: flex
+  justify-content: start
+  align-items: center
+  margin: auto 0.15em
+  
+  img
+    max-width: 50px
+  
+  span
+    margin-left: 2em
+
+.button-container
+  display: flex
+  justify-content: space-evenly
+  margin-top: 20px
+
+.button-confirm,
+.button-cancel,
+.button-return
+  display: grid
+  justify-content: center
+  padding: 10px 20px
+  margin: 10px
+  font-size: 16px
+  border: none
+  cursor: pointer
+  text-decoration: none
+  border-radius: 10px
+  width: -moz-available
+  width: -webkit-fill-available
+
+.button-confirm
+  background-color: #dc4d4d
+  color: white
+
+  &:hover
+    opacity: 0.8
+
+.button-cancel
+  background-color: #dc4d4d
+  color: white
+
+.button-return
+  background-color: #dc4d4d
+  color: white
+
+  &:hover
+    opacity: 0.8
+
+.button-confirm:hover,
+.button-cancel:hover,
+.button-return:hover
+  opacity: 0.8
+
+.confirmation-title
+  font-size: 2rem
+  color: #333
+  text-align: center
+  margin-top: 50px
+
+.confirmation-message
+  font-size: 1.5rem
+  text-align: center
+  margin-top: 20px
+
+// Media queries para dispositivos móviles
+@media only screen and (max-width: 600px)
+  // Aquí van los estilos específicos para dispositivos móviles
+  nav
+    padding: 5px 0
+
+    ul
+      margin-left: 10px
+
+    li
+      margin-right: 10px
+
+  .catalogo-container
+    margin: 5% 20% 5% 20%
+
+  .centered-index-content
+    margin: 5% 10% 0 10%
+
+  .producto-container
+    grid-template-columns: repeat(1, minmax(100px, 1fr))
+
+// Media queries para tablets
+@media only screen and (min-width: 601px) and (max-width: 1024px)
+  // Aquí van los estilos específicos para tablets
+
+  .catalogo-container
+    margin: 5% 15% 5% 15%
+
+  .centered-index-content
+    margin: 5% 10% 0 10%
+
+  .producto-container
+    grid-template-columns: repeat(2, minmax(200px, 1fr))
+
+// Media queries para desktops
+@media only screen and (min-width: 1025px)
+  // Aquí van los estilos específicos para desktops
