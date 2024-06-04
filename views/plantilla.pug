@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title Inventario
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/css/styles.css')
+  body
+    nav
+      ul(class='navbar')
+        if !user
+          .inicio
+            li
+              a(href='/' class='linknav') Inicio
+            li  
+              a(href='/catalogo' class='linknav') Catalogo
+          .cuentas
+            li
+              a(href='/login' class='linknav') Iniciar Sesión
+            li
+              button(alt="registro" onclick="location.href='/registro'" class='btn-registro')
+                i r
+                i e
+                i g
+                i i
+                i s
+                i t
+                i r
+                i o
+      
+        else
+          .inicio
+            li
+              a(href='/' class='linknav') Inicio 
+            li  
+              a(href='/catalogo' class='linknav') Catalogo
+            
+            if user == 'admin'
+              li
+                a(href='/compras' class='linknav') Compras
+              li 
+                a(href='/ventas' class='linknav') Ventas
+          .cuentas
+            li
+              a(href='/logout' class='linknav') Cerrar Sesión
+    .container
+      block content

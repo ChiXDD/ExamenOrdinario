@@ -1,0 +1,36 @@
+extends plantilla
+
+block content
+  .general-container
+    if productos.length > 0
+      if user == 'admin'
+
+        .producto-container
+          each producto in productos
+            .producto
+              img(class='imagen-producto' src=`${producto.imagen}`, alt=producto.nombre)
+              
+              .info-producto
+                .producto-name
+                  p(class='producto-label') #{producto.nombre.toUpperCase()}
+                  p(class='producto-label') Unidades: #{producto.cantidad}
+
+                .producto-precio
+                  p(class='producto-label') Precio de compra: $#{producto.precio_compra} MXN
+                  p(class='producto-label') Precio de venta: $#{producto.precio_venta} MXN
+
+                .contenedor-editar
+                  form(action=`/agregar-compra/${producto.id}`, method='POST')
+                    button(type='submit') +
+                  form(action=`/agregar-venta/${producto.id}`, method='POST')
+                    button(type="submit") -
+      else
+        .producto-container
+          each producto in productos
+            .producto
+              img(src=`${producto.imagen}`, alt=producto.nombre)
+              p(class='producto-label') #{producto.nombre.toUpperCase()} 
+              p(class='producto-label') Unidades: #{producto.cantidad}
+              p(class='producto-label') Precio de venta: $#{producto.precio_venta} MXN
+    else
+      p No se encontraron resultados.

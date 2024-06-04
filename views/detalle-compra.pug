@@ -1,0 +1,54 @@
+extends plantilla
+
+block content
+    h1 #{title}
+    .general-container 
+        if compra.length > 0
+            ul(class='carrito-list')
+                each item in compra
+                    li
+                        img(src=`${item.imagen}`)
+                        span= item.nombre
+                        span= `Cantidad: ${item.cantidad}`
+                        span= `Total: \$${(item.precio_compra * item.cantidad).toFixed(2)}`
+            div(class='carrito-table')
+                table
+                    thead
+                        tr
+                            th Producto
+                            th Cantidad
+                            th Precio
+                    tbody
+                        - let total = 0;
+                        - let totalIva = 0;
+                        each item in compra
+                            - total += (item.precio_compra * item.cantidad); 
+                            tr
+                                td
+                                    .producto-cell
+                                        img(src=`${item.imagen}`)
+                                        span= item.nombre
+                                td= item.cantidad
+                                td= `\$ ${item.precio_compra}`
+            .procesar-compra-container
+                div(class='procesar-compra-detalle')
+                    strong= 'TOTAL: \n'
+                    span= `\$${total.toFixed(2)} MXN`
+                form(action='/procesar-compra' method='POST')
+                    button.button-confirm(type='submit') Confirmar compra
+                    a.button-return(href='/compras') Volver
+        else
+            p No hay compras
+
+    script.
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.carrito-list').style.display = 'block';
+                document.querySelector('.carrito-table').style.display = 'none';
+            } else {
+                document.querySelector('.carrito-list').style.display = 'none';
+                document.querySelector('.carrito-table').style.display = 'block';
+            }
+        });
+        // Ejecutar la función al cargar la página para establecer el estado inicial
+        window.dispatchEvent(new Event('resize'));

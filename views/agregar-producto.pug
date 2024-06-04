@@ -1,0 +1,50 @@
+extends plantilla2
+
+block content
+  .login-container
+    h1(class='title') #{titulo}
+
+    form(action='/login' method='POST' class='login-form')
+      .form-group
+        label(for='username' class='form-label') Nombre
+        input(type='text' name='nombre' id='nombre' placeholder='Nombre' class='form-input', required)
+
+      .form-group
+        label(for='cantidad' class='form-label') Cantidad
+        input(type="number" min='1' step='1' name='cantidad' id='cantidad' placeholder='Cantidad' class='form-input', required)
+
+      .form-group
+        label(for='precio_compra' class='form-label') Precio de compra
+        input(type="number" min='1' name='precio_compra' id='precio_compra' placeholder='Precio de compra' class='form-input', required)
+
+      .form-group
+        label(for='precio_venta' class='form-label') Precio de venta
+        input(type="number" min='1' name='precio_compra' id='precio_compra' placeholder='Precio de compra' class='form-input', required)
+
+      .form-group
+        label(for='imagen' class='form-label') Imagen
+        form(action="http://localhost:3000/agregar-producto" method="POST" enctype="multipart/form-data")
+          input(type="file" name="imagen" id="imagen" class='form-input', required)
+
+      .form-group
+        form(action="/agregar-producto" method="POST" enctype="multipart/form-data")
+          button(type='submit' class='form-button') Agregar producto
+
+
+    .reg-container
+      span 
+        a(href='/' class='register-link') Regresar al inicio
+
+    script.
+      const passwordInput = document.getElementById('password');
+      const mostrarContrasenaBtn = document.getElementById('mostrarContrasena');
+
+      mostrarContrasenaBtn.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            mostrarContrasenaBtn.innerHTML = '<i class="material-symbols-rounded">Ocultar</i>';
+        } else {
+            passwordInput.type = 'password';
+            mostrarContrasenaBtn.innerHTML = '<i class="material-symbols-rounded">Mostrar</i>';
+        }
+      });

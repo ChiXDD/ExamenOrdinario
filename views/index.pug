@@ -1,0 +1,21 @@
+extends plantilla 
+
+block content
+
+  .contenedor-principal
+    h1 #{title}
+    h3 Bienvenido a la app de inventario de Ferretería 'Chuchita'
+    h3 Si eres un usuario común, puedes ver el inventario de productos.
+    h3 Si eres un administrador, puedes agregar, editar y eliminar productos.
+    hr
+    h2 #{subtitulo}
+    
+    // Se agrega un evento para mostrar el mensaje de error en caso de que exista.
+    script.
+      document.addEventListener("DOMContentLoaded", function() {
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+        if (error) {
+            alert(error);
+        }
+      });

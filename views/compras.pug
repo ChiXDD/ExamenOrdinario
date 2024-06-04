@@ -1,0 +1,64 @@
+extends plantilla
+
+block content
+    h1 #{title}
+    .general-container
+        if compra.length > 0
+            ul(class='carrito-list')
+                each item in compra
+                    li
+                      img(src=`${item.imagen}`)
+                      span= item.nombre
+                      span= `Cantidad: ${item.cantidad}`
+                      span= `Total: \$ ${(item.precio_compra * item.cantidad)}`
+            div(class='carrito-table')
+                table
+                    thead
+                        tr
+                            th Producto
+                            th Cantidad
+                            th Total
+
+                    tbody
+                        - let total = 0;
+                        each item in compra
+                            - total += (item.precio_compra * item.cantidad);
+                            tr
+                                td
+                                    .producto-cell
+                                        img(src=`${item.imagen}`)
+                                        span= item.nombre
+                                td
+                                    .action-buttons
+                                        form(action=`/disminuir-compra/${item.id}/-1`, method='POST')
+                                            button(type='submit')
+                                                span -
+                                        div(class='quantity')
+                                            span= item.cantidad
+                                        form(action=`/aumentar-compra/${item.id}/1`, method='POST')
+                                            button(type='submit')
+                                                span +
+                                    .action-buttons
+                                        form(action=`/eliminar-compra/${item.id}`, method='POST')
+                                            button(id='eliminar-del-carrito' type='submit') Eliminar
+                                td= `\$ ${(item.precio_compra * item.cantidad).toFixed(2)}`
+            .procesar-compra-container
+                strong= 'TOTAL:\n'
+                span= `\$${total.toFixed(2)}`
+                form(action='/detalle-compra' method='GET')
+                    button.procesar-compra-button(type='submit') COMPRAR
+        else
+            p No hay compras
+
+    script.
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.carrito-list').style.display = 'block';
+                document.querySelector('.carrito-table').style.display = 'none';
+            } else {
+                document.querySelector('.carrito-list').style.display = 'none';
+                document.querySelector('.carrito-table').style.display = 'block';
+            }
+        });
+        // Ejecutar la función al cargar la página para establecer el estado inicial
+        window.dispatchEvent(new Event('resize'));

@@ -1,0 +1,64 @@
+extends plantilla
+
+block content
+    h1 #{title}
+    .general-container
+        if venta.length > 0
+            ul(class='carrito-list')
+                each item in venta
+                    li
+                      img(src=`${item.imagen}`)
+                      span= item.nombre
+                      span= `Cantidad: ${item.cantidad}`
+                      span= `Total: \$ ${(item.precio_venta * item.cantidad)}`
+            div(class='carrito-table')
+                table
+                    thead
+                        tr
+                            th Producto
+                            th Cantidad
+                            th Total
+
+                    tbody
+                        - let total = 0;
+                        each item in venta
+                            - total += (item.precio_venta * item.cantidad);
+                            tr
+                                td
+                                    .producto-cell
+                                        img(src=`${item.imagen}`)
+                                        span= item.nombre
+                                td
+                                    .action-buttons
+                                        form(action=`/actualizar-venta/${item.id}/-1`, method='POST')
+                                            button(type='submit')
+                                                span -
+                                        div(class='quantity')
+                                            span= item.cantidad
+                                        form(action=`/actualizar-venta/${item.id}/1`, method='POST')
+                                            button(type='submit')
+                                                span +
+                                    .action-buttons
+                                        form(action=`/eliminar-venta/${item.id}`, method='POST')
+                                            button(id='eliminar-del-carrito' type='submit') Eliminar
+                                td= `\$ ${(item.precio_venta * item.cantidad).toFixed(2)}`
+            .procesar-compra-container
+                strong= 'TOTAL:\n'
+                span= `\$${total.toFixed(2)} MXN`
+                form(action='/detalle-venta' method='GET')
+                    button.procesar-compra-button(type='submit') VENDER
+        else
+            p No hay ventas
+
+    script.
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.carrito-list').style.display = 'block';
+                document.querySelector('.carrito-table').style.display = 'none';
+            } else {
+                document.querySelector('.carrito-list').style.display = 'none';
+                document.querySelector('.carrito-table').style.display = 'block';
+            }
+        });
+        // Ejecutar la función al cargar la página para establecer el estado inicial
+        window.dispatchEvent(new Event('resize'));
